@@ -1,0 +1,50 @@
+@import "../../../styles/variables.scss";
+
+main {
+    background-color: $purple;
+    height: 88vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 250px;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+        h1 {
+            font-size: 4rem;
+            color: white;
+            font-family: 'georgia-pro';
+        }
+
+        h5{
+            font-size: 1.5rem;
+            color: white;
+            font-family: 'montserrat';
+            font-weight: 400;
+        }
+    }
+
+    button{
+        margin-top: 25px;
+        background-color: transparent;
+        border: solid 2px white;
+        color: white;
+        padding: 20px;
+
+        transition: all .2s linear;
+
+        &:hover{
+            background-color: white;
+            color: $purple;
+        }
+    }
+}
