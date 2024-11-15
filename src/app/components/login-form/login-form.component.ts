@@ -32,6 +32,6 @@ export class LoginFormComponent {
     const email = this.loginForm.value.inputEmail ? this.loginForm.value.inputEmail : "";
     const password = this.loginForm.value.inputPassword ? this.loginForm.value.inputPassword : "";
 
-    console.log(email + "-" + password);
+    alert(email + "-" + password);
   }
 }
