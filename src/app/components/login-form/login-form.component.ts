@@ -29,9 +29,10 @@ export class LoginFormComponent {
   })
 
   login(){
-    const email = this.loginForm.value.inputEmail ? this.loginForm.value.inputEmail : "";
-    const password = this.loginForm.value.inputPassword ? this.loginForm.value.inputPassword : "";
-
-    alert(email + "-" + password);
+    const data = {
+      email: this.loginForm.value.inputEmail ? this.loginForm.value.inputEmail : "",
+      password: this.loginForm.value.inputPassword ? this.loginForm.value.inputPassword : ""
+    }
+    console.log(data);
   }
 }
