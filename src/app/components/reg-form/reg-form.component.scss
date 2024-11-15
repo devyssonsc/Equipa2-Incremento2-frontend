@@ -1,0 +1,70 @@
+@import "../../../styles/variables.scss";
+.div-form{
+    width: 100%;
+
+    form{
+        width: 100%;
+
+        .form-group, .form-check{
+            width: 100%;
+
+                label{
+                    margin-left: 5px;
+                    font-family: 'montserrat', sans-serif;
+                    color: white;
+                }
+
+                .form-control{
+                    border-radius: 15px;
+                    padding: 12px;
+
+                    &::placeholder{
+                        font-family: 'montserrat', sans-serif;
+                    }
+                }
+
+                select{
+                    margin-top: 15px;
+                }
+
+                .form-check-input{
+                    border-radius: 3px;
+                    border: solid 2px $orange;
+
+                    &:checked{
+                        background-color: $orange;
+                    }
+                }
+        }
+
+        .form-check label{
+            margin-left: -5px;
+        }
+
+        .buttons{
+            margin-top: 30px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            button{
+                font-weight: bold;
+                border: none;
+                outline: none;
+                border-radius: 15px;
+                padding: 12px;
+                font-size: 1.2rem;
+            }
+
+            #btRegister{
+                background-color: $orange;
+            }
+
+            #btLogin{
+                background-color: $light-orange;
+                color: $dark-orange;
+            }
+        }
+    }
+}

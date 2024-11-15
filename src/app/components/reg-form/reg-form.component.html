@@ -1,0 +1,56 @@
+<div class="div-form">
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="form-group">
+            <label for="inName">Nome:</label>
+            <input type="text" formControlName="inputName" class="form-control" id="inName">
+        </div>
+        <div class="form-group">
+            <label for="inEmail">Email:</label>
+            <input type="email" formControlName="inputEmail" class="form-control" id="inEmail">
+        </div>
+        <div class="form-group">
+            <label for="inPassword">Password:</label>
+            <input type="password" formControlName="inputPassword" class="form-control" id="inPassword">
+        </div>
+        <div class="form-group">
+            <label for="inAddress">Morada:</label>
+            <textarea style="resize: none;" formControlName="inputAddress" class="form-control" rows="3" id="inAddress"></textarea>
+        </div>
+        <div id="check-userType" style="display: flex; justify-content: space-between; margin-top: 10px;">
+            <div class="form-check">
+                <input type="radio" name="checkUserType" formControlName="checkUserType" class="form-check-input" id="checkCostumer" value="Cliente" checked>
+                <label for="checkCostumer">Cliente</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="checkUserType" formControlName="checkUserType" class="form-check-input" id="checkPro" value="Profissional">
+                <label for="checkPro">Profissional</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <select class="form-control" id="inPaymentMethod" formControlName="inputPaymentMethod">
+                <option value="">-- Método de Pagamento --</option>
+                @for(mp of metodosPagamento; track mp){
+                    <option [value]=mp>{{ mp }}</option>
+                }
+            </select>
+        </div>
+        @if(this.userType == "Profissional"){
+            <div class="form-group">
+                <select class="form-control" id="inSpecialty" formControlName="inputSpecialty">
+                    <option value="">-- Especialidade --</option>
+                    @for(e of especialidades; track e){
+                        <option [value]=e>{{ e }}</option>
+                    }
+                </select>
+            </div> 
+            <div class="form-group">
+                <label for="inExperience">Experiência (em anos):</label>
+                <input type="number" formControlName="inputExperience" class="form-control" id="inExperience">
+            </div>
+        }
+        <div class="buttons">
+            <button type="submit" id="btRegister" class="btn btn-secondary">Registar-se</button>
+            <button routerLink="/login" id="btLogin" class="btn btn-primary">Entrar</button>
+        </div>
+    </form>
+</div>
