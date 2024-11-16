@@ -3,10 +3,15 @@
     <p>Minhas solicitações</p>
     <div class="my-requests">
         @for(ser of data; track ser){
-            @if(ser.status == "PENDENTE"){
-                <app-pending-request></app-pending-request>
-            }
-
+                <app-request
+                    [costumer]=ser.cliente.name
+                    [description]=ser.service.description
+                    [title]=ser.service.title
+                    [date]=ser.date.day
+                    [time]=ser.date.time
+                    [price]=ser.service.price
+                    [status]=ser.status
+                ></app-request>
         }
     </div>
 </section>
