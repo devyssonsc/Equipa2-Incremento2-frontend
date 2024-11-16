@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { StatusService } from '../status-service.enum';
+import { StatusService } from '../enums/status-service.enum';
 
 @Component({
   selector: 'app-request',

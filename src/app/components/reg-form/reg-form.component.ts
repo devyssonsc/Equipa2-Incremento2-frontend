@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validator, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { MetodoPagamento } from '../metodo-pagamento.enum';
-import { Especialidade } from '../especialidade.enum';
+import { MetodoPagamento } from '../enums/metodo-pagamento.enum';
+import { Especialidade } from '../enums/especialidade.enum';
 
 @Component({
   selector: 'app-reg-form',

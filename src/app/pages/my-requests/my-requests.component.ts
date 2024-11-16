@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
-import { StatusService } from '../../components/status-service.enum';
+import { StatusService } from '../../components/enums/status-service.enum';
 import { RequestComponent } from '../../components/request/request.component';
 
 @Component({
