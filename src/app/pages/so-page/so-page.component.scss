@@ -1,0 +1,99 @@
+@import "../../../styles/variables.scss";
+section{
+    background-color: $purple;
+    padding: 20px;
+    min-height: 92vh;
+
+    .container{
+        width: 100%;
+        background-color: white;
+        border-radius: 15px;
+        padding: 15px;
+
+        .info-service{
+            h3{
+                display: inline-block;
+                background-color: $light-orange;
+                color: $dark-orange;
+                font-family: 'montserrat';
+                border-radius: 15px;
+                padding: 5px 10px;
+                font-size: 1.3rem;
+                font-weight: bold;
+            }
+
+            p{
+                width: 70%;
+            }
+
+            span{
+                color: $orange;
+                font-family: 'montserrat';
+                font-size: 3.2rem;
+                font-weight: bold;
+                margin-bottom: -5px;
+    
+                span{
+                    font-size: 1.2rem;
+                }
+            }
+        }
+
+        .line{
+            width: 100%;
+            height: 2px;
+            background-color: $light-gray;
+            margin-bottom: 15px;
+        }
+
+        .info-pro{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            .field{
+                .field-title{
+                    font-family: 'montserrat';
+                    color: $dark-gray;
+                    font-size: 0.7rem;
+                    font-weight: bold;
+                    margin-bottom: 0;
+                }
+
+                p{
+                    font-family: 'montserrat';
+                    color: $dark-gray;
+                    font-size: 1.4em;
+                    font-weight: bold;
+                    margin: -10px 0 0 0;
+                }
+            }
+        }
+        form{
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            input{
+                border: solid 2px $purple;
+                padding: 5px 20px;
+                border-radius: 30px;
+                color: $light-gray;
+            }
+
+            button{
+                background-color: $orange;
+                color: white;
+                font-weight: bold;
+                border: none;
+                outline: none;
+                border-radius: 30px;
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+        }
+
+
+    }
+}

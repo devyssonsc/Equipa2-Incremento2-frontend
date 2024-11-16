@@ -1,0 +1,34 @@
+<app-header></app-header>
+<section>
+    <div class="container">
+        <div class="info-service">
+            <h3>{{ data.title }}</h3>
+            <p>{{ data.description }}</p>
+            <span>{{ data.price }}<span>&#8364;/h</span></span>
+        </div>
+        <div class="line"></div>
+        <div class="info-pro">
+            <div class="field">
+                <span class="field-title">Profissional</span>
+                <p>{{ data.pro.name }}</p>
+            </div>
+            <div class="field">
+                <span class="field-title">Serviços realizados</span>
+                <p>{{ data.pro.requests.length }}</p>
+            </div>
+            <div class="field">
+                <span class="field-title">Especialidade</span>
+                <p>{{ data.pro.specialty }}</p>
+            </div>
+            <div class="field">
+                <span class="field-title">Experiência</span>
+                <p><span>{{ data.pro.experience }}</span> anos</p>
+            </div>
+        </div>
+        <form [formGroup]="requirementForm" (ngSubmit)="requireService()">
+            <input type="date" formControlName="inputDate">
+            <input type="time" formControlName="inputTime">
+            <button type="submit" class="btn">Solicitar Serviço</button>
+        </form>
+    </div>
+</section>
