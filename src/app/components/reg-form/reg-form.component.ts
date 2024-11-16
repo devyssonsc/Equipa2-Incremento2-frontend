@@ -64,6 +64,10 @@ export class RegFormComponent implements OnInit {
     console.log(this.metodosPagamento);
     console.log(this.especialidades);
   }
+
+  changeUserType(){
+    this.userType = this.registerForm.value.checkUserType ? this.registerForm.value.checkUserType : ""
+  }
   
   register(){
     const data = {
