@@ -1,0 +1,12 @@
+<app-header></app-header>
+<section>
+    <p>Minhas solicitações</p>
+    <div class="my-requests">
+        @for(ser of data; track ser){
+            @if(ser.status == "PENDENTE"){
+                <app-pending-request></app-pending-request>
+            }
+
+        }
+    </div>
+</section>

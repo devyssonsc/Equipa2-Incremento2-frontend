@@ -1,0 +1,26 @@
+@import "../../../styles/variables.scss";
+section{
+    background-color: $purple;
+    padding: 20px;
+    min-height: 92vh;
+
+    p{
+        font-family: 'montserrat';
+        font-weight: bold;
+        color: white;
+        font-size: 0.8rem;
+        margin: 0 0 -15px 10px;
+    }
+
+    .my-requests{
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+
+        margin-top: 20px;
+    }
+}
