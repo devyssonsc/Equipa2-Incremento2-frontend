@@ -9,8 +9,10 @@
             <app-service-option
                 [title]=so.title
                 [description]=so.description
-                [pro]=so.pro
-                [price]=so.price>
+                [pro]=so.pro.name
+                [price]=so.price
+                (click)="showDetails(so.id)"
+            >
             </app-service-option>
         }
     </div>
