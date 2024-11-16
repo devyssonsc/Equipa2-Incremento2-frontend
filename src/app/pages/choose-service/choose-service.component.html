@@ -1,0 +1,17 @@
+<app-header></app-header>
+<section>
+    <div class="form-group">
+        <input type="text" class="form-control" id="inSearch" placeholder="Pesquisar..." (keyup.enter)="onSearch()">
+        <i class="bi bi-search" (click)="onSearch()"></i>
+    </div>
+    <div class="service-options">
+        @for(so of datas; track so){
+            <app-service-option
+                [title]=so.title
+                [description]=so.description
+                [pro]=so.pro
+                [price]=so.price>
+            </app-service-option>
+        }
+    </div>
+</section>

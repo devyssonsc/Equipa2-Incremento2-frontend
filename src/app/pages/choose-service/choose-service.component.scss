@@ -1,0 +1,39 @@
+@import "../../../styles/variables.scss";
+section{
+    background-color: $purple;
+    padding: 20px;
+    min-height: 100vh;
+
+    .form-group{
+        display: flex;
+        align-items: center;
+        position: relative;
+        
+        #inSearch{
+            border-radius: 15px;
+            
+            &::placeholder{
+                color: $light-gray;
+                font-family: 'montserrat';
+            }
+        }
+
+        i{
+            position: absolute;
+            right: 10px;
+            color: $light-gray;
+        }
+    }
+
+    .service-options{
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+
+        margin-top: 20px;
+    }
+}
