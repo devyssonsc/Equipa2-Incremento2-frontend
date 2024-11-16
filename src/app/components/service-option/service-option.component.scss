@@ -1,0 +1,54 @@
+@import "../../../styles/variables.scss";
+.service-option{
+    width: 100%;
+    min-width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: row;
+
+    .info{
+        h3{
+            display: inline-block;
+            background-color: $light-orange;
+            color: $dark-orange;
+            font-family: 'montserrat';
+            border-radius: 15px;
+            padding: 5px 10px;
+            font-size: 1.05rem;
+            font-weight: bold;
+        }
+
+        p{
+            font-family: 'montserrat';
+        }
+
+        span{
+            color: $light-gray;
+
+            i{
+                margin-right: 2px;
+            }
+        }
+    }
+
+    .price{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        span{
+            color: $orange;
+            font-family: 'montserrat';
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: -5px;
+
+            span{
+                font-size: 1rem;
+            }
+        }
+    }
+}
