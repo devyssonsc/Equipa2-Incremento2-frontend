@@ -1,0 +1,100 @@
+@import "../../../styles/variables.scss";
+
+.pending-request {
+    width: 100%;
+    min-width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    .info {
+        display: flex;
+        flex-direction: row;
+
+        h2 {
+            font-family: 'georgia-pro';
+            color: $purple;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+
+        p {
+            font-family: 'montserrat';
+            margin-bottom: 0;
+            font-size: 0.7rem;
+        }
+
+        h5 {
+
+            display: inline-block;
+            background-color: $light-orange;
+            color: $dark-orange;
+            font-family: 'montserrat';
+            border-radius: 15px;
+            padding: 3px 8px;
+            font-size: 0.7rem;
+            font-weight: bold;
+
+        }
+
+        .date-info{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 15px;
+            color: $light-gray;
+
+            i{
+                margin-right: 2px;
+            }
+            
+        }
+
+        .price{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+    
+            span{
+                color: $orange;
+                font-family: 'montserrat';
+                font-size: 1.8rem;
+                font-weight: bold;
+                margin-bottom: -5px;
+    
+                span{
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+    .buttons{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+
+        .btn{
+            width: 48%;
+            border-radius: 30px;
+            padding: 3px 8px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn-danger{
+            background-color: $red;
+            border: none;
+        }
+
+        .btn-success{
+            background-color: $green;
+            border: none;
+        }
+    }
+}
