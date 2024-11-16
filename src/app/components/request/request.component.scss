@@ -1,6 +1,6 @@
 @import "../../../styles/variables.scss";
 
-.pending-request {
+.request {
     width: 100%;
     min-width: 100%;
     background-color: white;
@@ -13,6 +13,7 @@
     .info {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
 
         h2 {
             font-family: 'georgia-pro';
@@ -78,9 +79,10 @@
         align-items: center;
         justify-content: space-between;
         margin-top: 10px;
+        gap: 5px;
 
         .btn{
-            width: 48%;
+            width: 100%;
             border-radius: 30px;
             padding: 3px 8px;
             color: white;
@@ -95,6 +97,14 @@
         .btn-success{
             background-color: $green;
             border: none;
+        }
+
+        .btn-orange{
+            background-color: $orange;
+        }
+
+        .btn-blue{
+            background-color: rgb(118, 180, 235);
         }
     }
 }

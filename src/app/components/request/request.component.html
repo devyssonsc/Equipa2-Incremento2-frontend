@@ -1,0 +1,41 @@
+<div class="request">
+    <div class="info">
+        <div class="service-info">
+            <h2>{{costumer}}</h2>
+            <p>{{description}}</p>
+            <h5>{{title}}</h5>
+            <div class="date-info">
+                <div class="date">
+                    <i class="bi bi-calendar"></i>
+                    <span>{{date}}</span>
+                </div>
+                <div class="date">
+                    <i class="bi bi-clock"></i>
+                    <span>{{time}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="price">
+            <span>{{price}}<span>&#8364;/h</span></span>
+        </div>
+    </div>
+    <div class="buttons">
+        @if(status == "PENDENTE"){    
+            <button class="btn btn-danger">Negar</button>
+            <button class="btn btn-success">Aceitar</button>
+        }
+        @if(status == "CANCELADO"){
+            <button class="btn btn-secondary" disabled>Cancelado</button>
+        }
+        @if(status == "CONCLUIDO"){
+            <button class="btn btn-secondary" disabled>Serviço concluído</button>
+        }
+        @if(status == "ANDAMENTO"){
+            <button class="btn btn-danger" >Finalizar</button>
+        }
+        @if(status == "ACEITE"){
+            <button class="btn btn-blue">Iniciar</button>
+            <button class="btn btn-danger">Cancelar</button>
+        }
+    </div>
+</div>
