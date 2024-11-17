@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, HttpClientModule],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.scss'
 })
@@ -28,11 +29,37 @@ export class LoginFormComponent {
     ])
   })
 
+  apiUrl: string = "http://localhost:8080/api/auth";
+
+  constructor(private httpClient: HttpClient, private router: Router){}
+
   login(){
-    const data = {
+    const formData = {
       email: this.loginForm.value.inputEmail ? this.loginForm.value.inputEmail : "",
       password: this.loginForm.value.inputPassword ? this.loginForm.value.inputPassword : ""
     }
-    console.log(data);
+    console.log(formData);
+
+    this.httpClient.post(this.apiUrl, formData).subscribe(
+      (result) => {
+        console.log(result);
+        if("id" in result){
+          const id = (result as { id: string }).id;
+          localStorage.setItem("id", id);
+        }
+
+        if("userType" in result){
+          const userType = (result as { userType: string }).userType;
+          localStorage.setItem("userType", userType);
+        }
+
+        localStorage.setItem("logado", "true");
+
+        this.router.navigate(["/my-profile"]);
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
   }
 }
