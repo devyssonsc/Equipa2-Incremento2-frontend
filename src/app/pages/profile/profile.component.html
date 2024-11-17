@@ -5,9 +5,9 @@
             <i class="bi bi-person-circle"></i>
         </div>
         <div class="info">
-            <span>Devysson Cardoso</span>
-            <p>devyssonsc&#64;gmail.com</p>
-            <p>Rua Dr. Júlio de Matos, 431, Porto, Porto</p>
+            <span>{{ user?.nome || 'Carregando...' }}</span>
+            <p>{{ user?.email || 'Carregando...' }}</p>
+            <p>{{ user?.morada || 'Carregando...' }}</p>
             <a href="#">Alterar<i class="bi bi-pencil"></i></a>
         </div>
     </div>
