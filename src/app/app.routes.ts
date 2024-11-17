@@ -4,6 +4,7 @@ import { LoginRegisterComponent } from './pages/login-register/login-register.co
 import { ChooseServiceComponent } from './pages/choose-service/choose-service.component';
 import { SoPageComponent } from './pages/so-page/so-page.component';
 import { MyRequestsComponent } from './pages/my-requests/my-requests.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export const routes: Routes = [
     {
@@ -33,5 +34,9 @@ export const routes: Routes = [
     {
         path: "my-requests",
         component: MyRequestsComponent
+    },
+    {
+        path: "my-profile",
+        component: ProfileComponent
     }
 ];
