@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,4 +11,16 @@ import { RouterModule } from '@angular/router';
 })
 export class HomeComponent {
 
+  path?: string;
+
+  constructor(private router: Router){}
+
+  start(){
+    const logged = localStorage.getItem("logado") == "true" ? true : false;
+    if(logged){
+      this.router.navigate(["/my-requests"]);
+    } else{
+      this.router.navigate(["/login"]);
+    }
+  }
 }

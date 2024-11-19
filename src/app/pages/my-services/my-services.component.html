@@ -1,0 +1,15 @@
+<app-header></app-header>
+<section>
+    <p>Meus Serviços</p>
+    <div class="my-services">
+        @for(so of data; track so){
+        <app-service-option
+            [title]=so.titulo
+            [description]=so.descricao
+            [pro]=so.profissional.nome
+            [price]=so.valorHora>
+        </app-service-option>
+        }
+        <button routerLink="/create-service" class="btn"><i class="bi bi-plus-circle"></i></button>
+    </div>
+</section>

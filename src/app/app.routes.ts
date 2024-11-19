@@ -5,6 +5,8 @@ import { ChooseServiceComponent } from './pages/choose-service/choose-service.co
 import { SoPageComponent } from './pages/so-page/so-page.component';
 import { MyRequestsComponent } from './pages/my-requests/my-requests.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { MyServicesComponent } from './pages/my-services/my-services.component';
+import { CreateServiceComponent } from './pages/create-service/create-service.component';
 
 export const routes: Routes = [
     {
@@ -34,6 +36,10 @@ export const routes: Routes = [
     {
         path: "my-requests",
         component: MyRequestsComponent
+    },
+    {
+        path: "my-services",
+        component: MyServicesComponent
     },
     {
         path: "my-profile",

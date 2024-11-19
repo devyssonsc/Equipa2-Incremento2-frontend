@@ -1,0 +1,45 @@
+@import "../../../styles/variables.scss";
+section{
+    background-color: $purple;
+    padding: 20px;
+    min-height: 92vh;
+
+    p{
+        font-family: 'montserrat';
+        font-weight: bold;
+        color: white;
+        font-size: 0.8rem;
+        margin: 0 0 -15px 10px;
+    }
+
+    .my-services{
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+
+        margin-top: 20px;
+
+        button{
+            background-color: white;
+            width: 100%;
+            font-size: 2em;
+            color: $purple;
+            font-weight: bold;
+            border-radius: 15px;
+            transition: all .2s linear;
+            cursor: pointer;
+
+            &:hover{
+                background-color: whitesmoke;
+            }
+        }
+    }
+
+    app-service-option{
+        width: 100%;
+    }
+}

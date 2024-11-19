@@ -31,9 +31,9 @@ export class LoginFormComponent {
 
   apiUrl: string = "http://localhost:8080/api/auth";
 
-  constructor(private httpClient: HttpClient, private router: Router){}
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
-  login(){
+  login() {
     const formData = {
       email: this.loginForm.value.inputEmail ? this.loginForm.value.inputEmail : "",
       password: this.loginForm.value.inputPassword ? this.loginForm.value.inputPassword : ""
@@ -43,12 +43,12 @@ export class LoginFormComponent {
     this.httpClient.post(this.apiUrl, formData).subscribe(
       (result) => {
         console.log(result);
-        if("id" in result){
+        if ("id" in result) {
           const id = (result as { id: string }).id;
           localStorage.setItem("id", id);
         }
 
-        if("userType" in result){
+        if ("userType" in result) {
           const userType = (result as { userType: string }).userType;
           localStorage.setItem("userType", userType);
         }
@@ -58,7 +58,10 @@ export class LoginFormComponent {
         this.router.navigate(["/my-profile"]);
       },
       (error) => {
-        console.log(error);
+        // Captura e imprime a mensagem de erro
+        if (error.error) {
+          console.error("Error:", error.error);
+        }
       }
     )
   }

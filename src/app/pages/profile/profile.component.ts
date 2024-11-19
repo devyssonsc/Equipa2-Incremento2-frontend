@@ -1,6 +1,6 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
@@ -16,16 +16,16 @@ export class ProfileComponent implements AfterViewInit {
   id: string | null = null;
   user: any;
 
-  apiUrl: string = "http://localhost:8080/api/utilizadores";
+  apiUrl: string = "http://localhost:8080/api";
 
-  constructor(private httpCliente: HttpClient) { }
+  constructor(private httpCliente: HttpClient, private router: Router) { }
 
   ngAfterViewInit(): void {
     this.id = localStorage.getItem("id");
     this.userType = localStorage.getItem("userType");
 
     if (this.id != null) {
-      this.httpCliente.get(`${this.apiUrl}/${this.id}`).subscribe(
+      this.httpCliente.get(`${this.apiUrl}/utilizadores/${this.id}`).subscribe(
         (result) => {
           console.log(result);
           this.user = result;
@@ -35,5 +35,12 @@ export class ProfileComponent implements AfterViewInit {
         }
       )
     }
+  }
+
+  logOut(){
+    localStorage.setItem("logado", "false");
+    localStorage.removeItem("userType");
+    localStorage.removeItem("id");
+    this.router.navigate(["/home"]);
   }
 }
