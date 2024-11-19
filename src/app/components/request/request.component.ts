@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './request.component.html',
   styleUrl: './request.component.scss'
 })
-export class RequestComponent implements OnInit {
+export class RequestComponent{
   @Input() id: string = "";
   @Input() costumer: string = "";
   @Input() description: string = "";
@@ -28,10 +28,6 @@ export class RequestComponent implements OnInit {
   apiUrl: string = "http://localhost:8080/api/solicitacoes";
 
   constructor(private httpClient: HttpClient, private router: Router){}
-
-  ngOnInit(): void {
-      console.log(this.status);
-  }
 
   updateStatus(newStatus: StatusService, id: string){
     this.httpClient.put(`${this.apiUrl}/${id}`, {status:newStatus}).subscribe(

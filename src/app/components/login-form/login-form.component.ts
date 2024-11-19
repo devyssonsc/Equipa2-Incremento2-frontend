@@ -38,11 +38,9 @@ export class LoginFormComponent {
       email: this.loginForm.value.inputEmail ? this.loginForm.value.inputEmail : "",
       password: this.loginForm.value.inputPassword ? this.loginForm.value.inputPassword : ""
     }
-    console.log(formData);
 
     this.httpClient.post(this.apiUrl, formData).subscribe(
       (result) => {
-        console.log(result);
         if ("id" in result) {
           const id = (result as { id: string }).id;
           localStorage.setItem("id", id);

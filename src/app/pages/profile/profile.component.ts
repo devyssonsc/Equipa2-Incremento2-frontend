@@ -27,7 +27,6 @@ export class ProfileComponent implements AfterViewInit {
     if (this.id != null) {
       this.httpCliente.get(`${this.apiUrl}/utilizadores/${this.id}`).subscribe(
         (result) => {
-          console.log(result);
           this.user = result;
         },
         (error) => {

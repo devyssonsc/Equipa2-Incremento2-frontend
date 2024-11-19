@@ -25,7 +25,6 @@ export class MyRequestsComponent implements OnInit {
     const id = localStorage.getItem("id");
       this.httpClient.get(`${this.apiUrl}/utilizador/${id}`).subscribe(
         (response: any) => {
-          console.log(response);
           this.data = response
         },
         (error) => {
