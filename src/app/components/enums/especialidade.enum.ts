@@ -1,5 +1,5 @@
 export enum Especialidade {
-    Limpeza = "Limpeza",
-    Pintura = "Pintura"
+    Limpeza = "LIMPEZA",
+    Pintura = "PINTURA"
 }
   
