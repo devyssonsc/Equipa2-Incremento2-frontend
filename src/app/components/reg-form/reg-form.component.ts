@@ -80,7 +80,7 @@ export class RegFormComponent implements OnInit {
       morada: this.registerForm.value.inputAddress ? this.registerForm.value.inputAddress : "",
       userType: this.registerForm.value.checkUserType ? this.registerForm.value.checkUserType.toUpperCase() : "",
       formaDePagamento: this.registerForm.value.inputPaymentMethod ? this.registerForm.value.inputPaymentMethod : "",
-      especialidade: this.registerForm.value.inputSpecialty ? this.registerForm.value.inputSpecialty : "",
+      especialidade: this.registerForm.value.inputSpecialty ? this.registerForm.value.inputSpecialty : null,
       experiencia: this.registerForm.value.inputExperience ? this.registerForm.value.inputExperience : "",
     }
     console.log(formData);
