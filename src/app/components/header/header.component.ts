@@ -19,4 +19,12 @@ export class HeaderComponent implements AfterViewInit {
 
       this.cdr.detectChanges();
   }
+
+  goToMyProfile(){
+    if(localStorage.getItem("logado") != "true"){
+      this.router.navigate(["/login"]);
+    } else{
+      this.router.navigate(["/my-profile"]);
+    }
+  }
 }

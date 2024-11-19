@@ -5,33 +5,63 @@
             <p>{{description}}</p>
             <h5>{{title}}</h5>
             <div class="date-info">
+                @if(userType == "CLIENTE"){
+                    <div class="pro">
+                        <i class="bi bi-person"></i>
+                        <span>{{pro}}</span>
+                    </div>
+                }
                 <div class="date">
                     <i class="bi bi-clock"></i>
                     <span>{{date.replaceAll("-", "/")}}</span>
                 </div>
             </div>
+            @if(userType == "PROFISSIONAL"){
+                <div class="address-info">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <span>{{address}}</span>
+                </div>
+            }
         </div>
         <div class="price">
             <span>{{price}}<span>&#8364;/h</span></span>
         </div>
     </div>
     <div class="buttons">
-        @if(status == "PENDENTE"){    
-            <button class="btn btn-danger">Negar</button>
-            <button class="btn btn-success">Aceitar</button>
-        }
-        @if(status == "CANCELADO"){
-            <button class="btn btn-secondary" disabled>Cancelado</button>
-        }
-        @if(status == "CONCLUIDO"){
-            <button class="btn btn-secondary" disabled>Serviço concluído</button>
-        }
-        @if(status == "ANDAMENTO"){
-            <button class="btn btn-danger" >Finalizar</button>
-        }
-        @if(status == "ACEITE"){
-            <button class="btn btn-blue">Iniciar</button>
-            <button class="btn btn-danger">Cancelar</button>
+        @if(userType == "PROFISSIONAL"){
+            @if(status == "PENDENTE"){    
+                <button class="btn btn-danger" (click)="updateStatus(StatusService.CANCELADO, id)">Negar</button>
+                <button class="btn btn-success" (click)="updateStatus(StatusService.ACEITE, id)">Aceitar</button>
+            }
+            @if(status == "CANCELADO"){
+                <button class="btn btn-secondary" disabled>Cancelado</button>
+            }
+            @if(status == "CONCLUIDO"){
+                <button class="btn btn-secondary" disabled>Serviço concluído</button>
+            }
+            @if(status == "ANDAMENTO"){
+                <button class="btn btn-danger"  (click)="updateStatus(StatusService.CONCLUIDO, id)">Finalizar</button>
+            }
+            @if(status == "ACEITE"){
+                <button class="btn btn-blue" (click)="updateStatus(StatusService.ANDAMENTO, id)">Iniciar</button>
+                <button class="btn btn-danger" (click)="updateStatus(StatusService.CANCELADO, id)">Cancelar</button>
+            }
+        } @else if(userType == "CLIENTE"){
+            @if(status == "PENDENTE"){    
+                <button class="btn btn-orange" disabled>Pendente</button>
+            }
+            @if(status == "CANCELADO"){
+                <button class="btn btn-secondary" disabled>Cancelado</button>
+            }
+            @if(status == "CONCLUIDO"){
+                <button class="btn btn-secondary" disabled>Serviço concluído</button>
+            }
+            @if(status == "ANDAMENTO"){
+                <button class="btn btn-blue" disabled>Em andamento</button>
+            }
+            @if(status == "ACEITE"){
+                <button class="btn btn-danger"  (click)="updateStatus(StatusService.CANCELADO, id)">Cancelar Solicitação</button>
+            }
         }
     </div>
 </div>

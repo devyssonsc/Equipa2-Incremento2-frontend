@@ -1,34 +1,24 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-so-page',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, HeaderComponent],
+  imports: [ReactiveFormsModule, CommonModule, HeaderComponent, HttpClientModule],
   templateUrl: './so-page.component.html',
   styleUrl: './so-page.component.scss'
 })
 export class SoPageComponent implements OnInit {
 
-  id: string | null = null;
+  idServico: string | null = null;
 
-  data = {
-    id: 1,
-    title: "Pintura",
-    description: "Pintura em casas ou apartamentos com até 100m2",
-    pro: {
-      name: "Divaldo Dias",
-      specialty: "Pintura",
-      experience: 3,
-      requests: []
-    },
-    price: "25,00"
-  }
+  data: any;
 
-  constructor(private route: ActivatedRoute){}
+  constructor(private route: ActivatedRoute, private router: Router, private httpClient: HttpClient){}
 
   requirementForm = new FormGroup({
     inputDate: new FormControl('', [
@@ -39,17 +29,48 @@ export class SoPageComponent implements OnInit {
     ])
   })
 
+  apiUrl: string = "http://localhost:8080/api"
+
   ngOnInit(){
     this.route.paramMap.subscribe(params => {
-      this.id = params.get('id');
+      this.idServico = params.get('id');
     })
+
+    this.httpClient.get(`${this.apiUrl}/servicos/${this.idServico}`).subscribe(
+      (response) => {
+        console.log(response)
+        this.data = response as any;
+      }
+    )
+  }
+
+  formatDate(str: any){
+    if(typeof str == "string"){
+      const [year, month, day] = str.split('-');
+      return `${day}-${month}-${year}`;
+    }
+    return '';
   }
 
   requireService(){
-    const data = {
-      date: this.requirementForm.get('inputDate')?.value,
-      time: this.requirementForm.get('inputTime')?.value
+    const date = `${this.formatDate(this.requirementForm.get('inputDate')?.value)} ${this.requirementForm.get('inputTime')?.value}`;
+    
+    const requestData = {
+      status: "PENDENTE",
+      cliente: {
+        id: localStorage.getItem("id")
+      },
+      servico: {
+        id: this.idServico
+      },
+      data: date
     }
-    console.log(data);
+
+    this.httpClient.post(`${this.apiUrl}/solicitacoes`, requestData).subscribe(
+      (response) => {
+        console.log(response);
+        this.router.navigate(["/my-requests"]);
+      }
+    )
   }
 }

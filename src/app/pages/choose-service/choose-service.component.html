@@ -5,12 +5,12 @@
         <i class="bi bi-search" (click)="onSearch()"></i>
     </div>
     <div class="service-options">
-        @for(so of datas; track so){
+        @for(so of data; track so){
             <app-service-option
-                [title]=so.title
-                [description]=so.description
-                [pro]=so.pro.name
-                [price]=so.price
+                [title]=so.titulo
+                [description]=so.descricao
+                [pro]=so.profissional.nome
+                [price]=so.valorHora
                 (click)="showDetails(so.id)"
             >
             </app-service-option>

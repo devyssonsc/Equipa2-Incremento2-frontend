@@ -1,7 +1,9 @@
 @import "../../../styles/variables.scss";
-.service-option{
+
+.service-option {
     width: 100%;
     min-width: 100%;
+    max-width: 100%;
     background-color: white;
     border-radius: 15px;
     padding: 15px;
@@ -10,8 +12,8 @@
     flex-direction: row;
     justify-content: space-between;
 
-    .info{
-        h3{
+    .info {
+        h3 {
             display: inline-block;
             background-color: $light-orange;
             color: $dark-orange;
@@ -22,34 +24,36 @@
             font-weight: bold;
         }
 
-        p{
+        p {
             font-family: 'montserrat';
-            text-wrap: wrap;
+            word-wrap: break-all;
+            overflow-wrap: break-all;
+            white-space: normal;
         }
 
-        span{
+        span {
             color: $light-gray;
 
-            i{
+            i {
                 margin-right: 2px;
             }
         }
     }
 
-    .price{
+    .price {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         align-items: flex-end;
 
-        span{
+        span {
             color: $orange;
             font-family: 'montserrat';
             font-size: 1.8rem;
             font-weight: bold;
             margin-bottom: -5px;
 
-            span{
+            span {
                 font-size: 1rem;
             }
         }

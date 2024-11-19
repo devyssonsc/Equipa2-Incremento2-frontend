@@ -2,27 +2,27 @@
 <section>
     <div class="container">
         <div class="info-service">
-            <h3>{{ data.title }}</h3>
-            <p>{{ data.description }}</p>
-            <span>{{ data.price }}<span>&#8364;/h</span></span>
+            <h3>{{ data?.titulo }}</h3>
+            <p>{{ data?.descricao }}</p>
+            <span>{{ data?.valorHora }}<span>&#8364;/h</span></span>
         </div>
         <div class="line"></div>
         <div class="info-pro">
             <div class="field">
                 <span class="field-title">Profissional</span>
-                <p>{{ data.pro.name }}</p>
+                <p>{{ data?.profissional.nome }}</p>
             </div>
-            <div class="field">
+            <!-- <div class="field">
                 <span class="field-title">Serviços realizados</span>
-                <p>{{ data.pro.requests.length }}</p>
-            </div>
+                <p>{{ data?.profissional.servicosRealizados }}</p>
+            </div> -->
             <div class="field">
                 <span class="field-title">Especialidade</span>
-                <p>{{ data.pro.specialty }}</p>
+                <p>{{ data?.profissional.especialidade }}</p>
             </div>
             <div class="field">
                 <span class="field-title">Experiência</span>
-                <p><span>{{ data.pro.experience }}</span> anos</p>
+                <p><span>{{ data?.profissional.experiencia }}</span> anos</p>
             </div>
         </div>
         <form [formGroup]="requirementForm" (ngSubmit)="requireService()">
