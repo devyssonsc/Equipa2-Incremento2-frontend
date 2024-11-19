@@ -9,7 +9,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ServiceOptionComponent {
 
-  @Input() title: string = "";
+  @Input() type: string = "";
   @Input() description: string = "";
   @Input() pro: string = "";
   @Input() price: string = "";

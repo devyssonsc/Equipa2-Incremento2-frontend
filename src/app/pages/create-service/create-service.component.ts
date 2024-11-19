@@ -39,7 +39,7 @@ export class CreateServiceComponent implements OnInit {
 
   createService(){
     const data = {
-      titulo: this.serviceForm.value.inputServiceType ? this.serviceForm.value.inputServiceType : "",
+      tipo: this.serviceForm.value.inputServiceType ? this.serviceForm.value.inputServiceType : "",
       descricao: this.serviceForm.value.inputDescription ? this.serviceForm.value.inputDescription : "",
       valorHora: this.serviceForm.value.inputPrice ? this.serviceForm.value.inputPrice : "",
       profissional: {
