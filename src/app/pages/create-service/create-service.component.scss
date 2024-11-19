@@ -1,0 +1,47 @@
+@import "../../../styles/variables.scss";
+section{
+    background-color: $purple;
+    padding: 20px;
+    min-height: 92vh;
+
+    .create-service{
+        width: 100%;
+        background-color: white;
+        border-radius: 15px;
+        padding: 15px;
+
+        h2{
+            color: $purple;
+            font-family: 'georgia-pro';
+            border-radius: 15px;
+            padding: 5px 10px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        form{
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .form-control{
+                border: solid 2px $purple;
+                padding: 5px 20px;
+                border-radius: 15px;
+                color: $dark-gray;
+            }
+
+            button{
+                background-color: $orange;
+                color: white;
+                font-weight: bold;
+                border: none;
+                outline: none;
+                border-radius: 30px;
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
