@@ -14,7 +14,7 @@ export class RequestComponent{
   @Input() id: string = "";
   @Input() costumer: string = "";
   @Input() description: string = "";
-  @Input() title: string = "";
+  @Input() type: string = "";
   @Input() pro: string = "";
   @Input() date: string = "";
   @Input() price: string = "";
