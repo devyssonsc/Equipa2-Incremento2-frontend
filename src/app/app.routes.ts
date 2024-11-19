@@ -7,6 +7,8 @@ import { MyRequestsComponent } from './pages/my-requests/my-requests.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { MyServicesComponent } from './pages/my-services/my-services.component';
 import { CreateServiceComponent } from './pages/create-service/create-service.component';
+import { ManageUsersComponent } from './pages/manage-users/manage-users.component';
+import { RegisterAdmsComponent } from './pages/register-adms/register-adms.component';
 
 export const routes: Routes = [
     {
@@ -48,5 +50,13 @@ export const routes: Routes = [
     {
         path: "create-service",
         component: CreateServiceComponent
+    },
+    {
+        path: "manage-users",
+        component: ManageUsersComponent
+    },
+    {
+        path: "register-adms",
+        component: RegisterAdmsComponent
     }
 ];

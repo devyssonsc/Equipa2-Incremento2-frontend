@@ -1,0 +1,40 @@
+@import "../../../styles/variables.scss";
+section{
+    background-color: $purple;
+    padding: 20px;
+    min-height: 92vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+
+    app-user-card{
+        width: 100%;
+    }
+
+    button{
+        background-color: white;
+        width: 100%;
+        font-size: 1.2em;
+        color: $purple;
+        font-weight: bold;
+        border-radius: 15px;
+        transition: all .2s linear;
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        i{
+            font-size: 2em;
+        }
+
+        &:hover{
+            background-color: whitesmoke;
+        }
+    }
+}

@@ -9,19 +9,15 @@ section{
         align-items: center;
         position: relative;
         
-        #inSearch{
+        #inFilteredType{
             border-radius: 15px;
-            
-            &::placeholder{
-                color: $light-gray;
-                font-family: 'montserrat';
-            }
         }
 
         i{
             position: absolute;
             right: 10px;
-            color: $light-gray;
+            color: $purple;
+            font-weight: bold;
         }
     }
 

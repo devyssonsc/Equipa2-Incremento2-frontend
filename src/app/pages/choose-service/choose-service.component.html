@@ -1,9 +1,16 @@
 <app-header></app-header>
 <section>
-    <div class="form-group">
-        <input type="text" class="form-control" id="inSearch" placeholder="Pesquisar..." (keyup.enter)="onSearch()">
-        <i class="bi bi-search" (click)="onSearch()"></i>
-    </div>
+    <form [formGroup]="searchForm">
+        <div class="form-group">
+            <select formControlName="inputFilteredType" id="inFilteredType" class="form-control" (change)="onSearch()">
+                <option value="">-- Tipo de serviço --</option>
+                @for(st of serviceTypes; track st){
+                    <option [value]=st>{{st}}</option>
+                }
+            </select>
+            <i class="bi bi-search" (click)="onSearch()"></i>
+        </div>
+    </form>
     <div class="service-options">
         @for(so of data; track so){
             <app-service-option

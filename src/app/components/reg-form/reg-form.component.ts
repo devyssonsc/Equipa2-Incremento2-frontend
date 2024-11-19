@@ -3,8 +3,8 @@ import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validator, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { MetodoPagamento } from '../enums/metodo-pagamento.enum';
-import { Especialidade } from '../enums/especialidade.enum';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ServiceType } from '../enums/tipo-servico.enum';
 
 @Component({
   selector: 'app-reg-form',
@@ -15,7 +15,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class RegFormComponent implements OnInit {
   MetodoPagamento = MetodoPagamento;
-  Especialidade = Especialidade;
+  ServiceType = ServiceType;
   especialidades: any;
   metodosPagamento: any;
   
@@ -63,7 +63,7 @@ export class RegFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.metodosPagamento = Object.values(this.MetodoPagamento);
-    this.especialidades = Object.values(this.Especialidade);
+    this.especialidades = Object.values(this.ServiceType);
     console.log(this.metodosPagamento);
     console.log(this.especialidades);
   }

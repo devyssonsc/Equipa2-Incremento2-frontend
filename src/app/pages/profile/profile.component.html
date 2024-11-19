@@ -13,12 +13,13 @@
     </div>
     <div class="options">
         <ul>
-            <a routerLink="/my-requests"><li>Minhas Solicitações</li></a>
+            @if(user?.userType == "ADMINISTRADOR"){
+                <a routerLink="/manage-users"><li>Gerir utilizadores</li></a>
+            } @else{
+                <a routerLink="/my-requests"><li>Minhas Solicitações</li></a>
+            }
             @if(user?.userType == "PROFISSIONAL"){
                 <a routerLink="/my-services"><li>Meus Serviços</li></a>
-            }
-            @if(user?.userType == "ADMIN"){
-                <a routerLink="/manage-users"><li>Gerir utilizadores</li></a>
             }
             <a routerLink="/login" (click)="logOut()"><li>Log Out <i class="bi bi-box-arrow-right"></i></li></a>
         </ul>

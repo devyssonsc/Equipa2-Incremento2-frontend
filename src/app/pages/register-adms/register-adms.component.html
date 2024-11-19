@@ -1,0 +1,25 @@
+<app-header></app-header>
+<section>
+    <div class="register-adms">
+        <h2>Adicionar um Administrador</h2>
+        <form [formGroup]="adminForm" (ngSubmit)="registerAdmin()">
+            <div class="form-group">
+                <label for="inName">Nome:</label>
+                <input type="text" formControlName="inputName" class="form-control" id="inName">
+            </div>
+            <div class="form-group">
+                <label for="inEmail">Email:</label>
+                <input type="email" formControlName="inputEmail" class="form-control" id="inEmail">
+            </div>
+            <div class="form-group">
+                <label for="inPassword">Password:</label>
+                <input type="password" formControlName="inputPassword" class="form-control" id="inPassword">
+            </div>
+            <div class="form-group">
+                <label for="inAddress">Morada:</label>
+                <textarea style="resize: none;" formControlName="inputAddress" class="form-control" rows="3" id="inAddress"></textarea>
+            </div>
+            <button type="submit" class="btn">Registar ADM</button>
+        </form>
+    </div>
+</section>

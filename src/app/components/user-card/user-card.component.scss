@@ -1,0 +1,53 @@
+@import "../../../styles/variables.scss";
+.user-card{
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .personal-infos{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        h3 {
+            font-family: 'georgia-pro';
+            color: $purple;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+
+        p {
+            font-family: 'montserrat';
+            margin-bottom: 0;
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: $dark-gray;
+        }
+
+        span {
+            color: $orange;
+            font-weight: bold;
+            font-size: 1.3rem;
+            font-family: 'montserrat';
+        }
+    }
+
+    button{
+        color: red;
+        cursor: pointer;
+        font-size: 1.5rem;
+
+        &:hover{
+            background-color: whitesmoke;
+        }
+    }
+}

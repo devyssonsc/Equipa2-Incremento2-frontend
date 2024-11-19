@@ -1,0 +1,15 @@
+<app-header></app-header>
+<section>
+    @for(u of data; track u){
+        @if(u.id != myId){
+            <app-user-card
+            [id]=u.id
+            [name]=u.nome
+            [email]=u.email
+            [address]=u.morada
+            [userType]=u.userType
+            ></app-user-card>
+        }
+    }
+    <button routerLink="/register-adms" class="btn">Adicionar Adm<i class="bi bi-plus-circle"></i></button>
+</section>
