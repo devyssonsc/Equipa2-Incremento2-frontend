@@ -36,6 +36,8 @@ export class SoPageComponent implements OnInit {
       this.idServico = params.get('id');
     })
 
+    console.log(this.idServico);
+
     this.httpClient.get(`${this.apiUrl}/servicos/${this.idServico}`).subscribe(
       (response) => {
         console.log(response)
