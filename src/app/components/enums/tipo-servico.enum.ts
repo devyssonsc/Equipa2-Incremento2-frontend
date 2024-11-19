@@ -1,0 +1,8 @@
+export enum ServiceType{
+    JARDINAGEM = "JARDINAGEM",
+    PINTURA = "PINTURA",
+    CARPINTARIA = "CARPINTARIA",
+    PICHELARIA = "PICHELARIA",
+    LIMPEZA = "LIMPEZA",
+    COZINHA = "COZINHA"
+}

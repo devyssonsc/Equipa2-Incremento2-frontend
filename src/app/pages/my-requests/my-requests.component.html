@@ -4,12 +4,11 @@
     <div class="my-requests">
         @for(ser of data; track ser){
                 <app-request
-                    [costumer]=ser.cliente.name
-                    [description]=ser.service.description
-                    [title]=ser.service.title
-                    [date]=ser.date.day
-                    [time]=ser.date.time
-                    [price]=ser.service.price
+                    [costumer]=ser.cliente.nome
+                    [description]=ser.descricao
+                    [title]=ser.titulo
+                    [date]=ser.data
+                    [price]=ser.valorHora
                     [status]=ser.status
                 ></app-request>
         }

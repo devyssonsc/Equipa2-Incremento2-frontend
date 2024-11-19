@@ -44,5 +44,9 @@ export const routes: Routes = [
     {
         path: "my-profile",
         component: ProfileComponent
+    },
+    {
+        path: "create-service",
+        component: CreateServiceComponent
     }
 ];

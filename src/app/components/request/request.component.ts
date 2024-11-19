@@ -13,7 +13,6 @@ export class RequestComponent implements OnInit {
   @Input() description: string = "";
   @Input() title: string = "";
   @Input() date: string = "";
-  @Input() time: string = "";
   @Input() price: string = "";
   @Input() status: string = "";
 
