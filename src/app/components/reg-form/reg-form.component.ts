@@ -55,6 +55,8 @@ export class RegFormComponent implements OnInit {
   userType: string = "";
 
   apiUrl: string = "http://localhost:8080/api/utilizadores";
+
+  errorMessage: string = "";
   
   constructor(private router: Router, private httpClient: HttpClient, private el: ElementRef, private renderer: Renderer2){}
 
@@ -99,7 +101,10 @@ export class RegFormComponent implements OnInit {
         this.router.navigate(["/my-profile"]);
       },
       (error) => {
-        console.log(error);
+        if(error.error){
+          console.log(error);
+          this.errorMessage = error.error || "Ocorreu um erro ao fazer registo.";;
+        }
       }
     )
   }

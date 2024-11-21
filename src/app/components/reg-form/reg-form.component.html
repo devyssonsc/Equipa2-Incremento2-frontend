@@ -82,6 +82,9 @@
             <input type="number" formControlName="inputExperience" class="form-control" id="inExperience">
         </div>
         }
+        @if(errorMessage){
+            <span style="color: red;">{{ errorMessage }}</span>
+        }
         <div class="buttons">
             <button type="submit" id="btRegister" class="btn btn-secondary" [disabled]="registerForm.invalid">Registar-se</button>
             <button routerLink="/login" id="btLogin" class="btn btn-primary">Entrar</button>
