@@ -3,26 +3,60 @@
         <div class="form-group">
             <label for="inName">Nome:</label>
             <input type="text" formControlName="inputName" class="form-control" id="inName">
+            @if(registerForm.get('inputPassword')?.touched && registerForm.get('inputName')?.errors) {
+                @if(registerForm.get('inputName')?.errors?.['required']){
+                    <span style="color: red;">*Nome é obrigatório. <br></span>
+                }
+            }
         </div>
         <div class="form-group">
             <label for="inEmail">Email:</label>
             <input type="email" formControlName="inputEmail" class="form-control" id="inEmail">
+            @if(registerForm.get('inputPassword')?.touched && registerForm.get('inputEmail')?.errors){
+                @if(registerForm.get('inputEmail')?.errors?.['required']){
+                    <span style="color: red;">*Email é obrigatório. <br></span>
+                }
+                @if(registerForm.get('inputEmail')?.errors?.['email']){
+                    <span style="color: red;">*Formato de email inválido. <br></span>
+                }
+            }
         </div>
         <div class="form-group">
             <label for="inPassword">Password:</label>
             <input type="password" formControlName="inputPassword" class="form-control" id="inPassword">
+            @if(registerForm.get('inputPassword')?.touched && registerForm.get('inputPassword')?.errors) {
+                @if(registerForm.get('inputPassword')?.errors?.['required']) {
+                    <span style="color: red;">*Senha é obrigatória. <br></span>
+                }
+                @if(registerForm.get('inputPassword')?.errors?.['minlength']){
+                    <span style="color: red;">*Senha deve ter pelo menos 8 caracteres. <br></span>
+                }
+                @if(registerForm.get('inputPassword')?.errors?.['pattern']){
+                    <span style="color: red;">*Senha deve conter letras maiúsculas,minúsculas, números e caracteres especiais. <br></span>
+                }
+            }
         </div>
         <div class="form-group">
             <label for="inAddress">Morada:</label>
             <textarea style="resize: none;" formControlName="inputAddress" class="form-control" rows="3" id="inAddress"></textarea>
+                @if(registerForm.get('inputAddress')?.touched && registerForm.get('inputAddress')?.errors) {
+                    @if(registerForm.get('inputAddress')?.errors?.['required']){
+                        <span style="color: red;">*Endereço é obrigatório. <br></span>
+                    }
+                    @if(registerForm.get('inputAddress')?.errors?.['minlength']){
+                        <span style="color: red;">*Endereço deve ter pelo menos 5 caracteres. <br></span>
+                    }
+                }
         </div>
         <div id="check-userType" style="display: flex; justify-content: space-between; margin-top: 10px;">
             <div class="form-check">
-                <input type="radio" name="checkUserType" formControlName="checkUserType" class="form-check-input" id="checkCostumer" value="Cliente" (change)="changeUserType()" checked>
+                <input type="radio" name="checkUserType" formControlName="checkUserType" class="form-check-input"
+                    id="checkCostumer" value="Cliente" (change)="changeUserType()" checked>
                 <label for="checkCostumer">Cliente</label>
             </div>
             <div class="form-check">
-                <input type="radio" name="checkUserType" formControlName="checkUserType" class="form-check-input" id="checkPro" value="Profissional" (change)="changeUserType()">
+                <input type="radio" name="checkUserType" formControlName="checkUserType" class="form-check-input"
+                    id="checkPro" value="Profissional" (change)="changeUserType()">
                 <label for="checkPro">Profissional</label>
             </div>
         </div>
@@ -30,26 +64,26 @@
             <select class="form-control" id="inPaymentMethod" formControlName="inputPaymentMethod">
                 <option value="">-- Método de Pagamento --</option>
                 @for(mp of metodosPagamento; track mp){
-                    <option [value]=mp>{{ mp }}</option>
+                <option [value]=mp>{{ mp }}</option>
                 }
             </select>
         </div>
         @if(this.userType == "Profissional"){
-            <div class="form-group">
-                <select class="form-control" id="inSpecialty" formControlName="inputSpecialty">
-                    <option value="">-- Especialidade --</option>
-                    @for(e of especialidades; track e){
-                        <option [value]=e>{{ e }}</option>
-                    }
-                </select>
-            </div> 
-            <div class="form-group">
-                <label for="inExperience">Experiência (em anos):</label>
-                <input type="number" formControlName="inputExperience" class="form-control" id="inExperience">
-            </div>
+        <div class="form-group">
+            <select class="form-control" id="inSpecialty" formControlName="inputSpecialty">
+                <option value="">-- Especialidade --</option>
+                @for(e of especialidades; track e){
+                <option [value]=e>{{ e }}</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="inExperience">Experiência (em anos):</label>
+            <input type="number" formControlName="inputExperience" class="form-control" id="inExperience">
+        </div>
         }
         <div class="buttons">
-            <button type="submit" id="btRegister" class="btn btn-secondary">Registar-se</button>
+            <button type="submit" id="btRegister" class="btn btn-secondary" [disabled]="registerForm.invalid">Registar-se</button>
             <button routerLink="/login" id="btLogin" class="btn btn-primary">Entrar</button>
         </div>
     </form>

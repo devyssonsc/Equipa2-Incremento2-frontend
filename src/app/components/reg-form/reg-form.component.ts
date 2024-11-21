@@ -32,10 +32,7 @@ export class RegFormComponent implements OnInit {
     inputPassword: new FormControl('', [
       Validators.required,
       Validators.minLength(8),
-      Validators.pattern(/(?=.*[A-Z])/),
-      Validators.pattern(/(?=.*[a-z])/),
-      Validators.pattern(/(?=.*[0-9])/),
-      Validators.pattern(/(?=.*[!@#$%^&*])/),
+      Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).+$/),
     ]),
     inputAddress: new FormControl('', [
       Validators.required,
