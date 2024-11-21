@@ -3,7 +3,7 @@
         <div class="form-group">
             <label for="inEmail">Email:</label>
             <input type="email" formControlName="inputEmail" class="form-control" id="inEmail">
-            @if(loginForm.get('inputPassword')?.touched && loginForm.get('inputEmail')?.errors){
+            @if(loginForm.get('inputEmail')?.touched && loginForm.get('inputEmail')?.errors){
                 @if(loginForm.get('inputEmail')?.errors?.['required']){
                     <span style="color: red;">*Email é obrigatório. <br></span>
                 }
