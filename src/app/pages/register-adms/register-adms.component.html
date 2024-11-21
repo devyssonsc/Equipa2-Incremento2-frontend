@@ -6,20 +6,55 @@
             <div class="form-group">
                 <label for="inName">Nome:</label>
                 <input type="text" formControlName="inputName" class="form-control" id="inName">
+                @if(adminForm.get('inputName')?.touched && adminForm.get('inputName')?.errors) {
+                    @if(adminForm.get('inputName')?.errors?.['required']){
+                        <span style="color: red;">*Nome é obrigatório. <br></span>
+                    }
+                }
             </div>
             <div class="form-group">
                 <label for="inEmail">Email:</label>
                 <input type="email" formControlName="inputEmail" class="form-control" id="inEmail">
+                @if(adminForm.get('inputEmail')?.touched && adminForm.get('inputEmail')?.errors){
+                    @if(adminForm.get('inputEmail')?.errors?.['required']){
+                        <span style="color: red;">*Email é obrigatório. <br></span>
+                    }
+                    @if(adminForm.get('inputEmail')?.errors?.['email']){
+                        <span style="color: red;">*Formato de email inválido. <br></span>
+                    }
+                }
             </div>
             <div class="form-group">
                 <label for="inPassword">Password:</label>
                 <input type="password" formControlName="inputPassword" class="form-control" id="inPassword">
+                @if(adminForm.get('inputPassword')?.touched && adminForm.get('inputPassword')?.errors) {
+                    @if(adminForm.get('inputPassword')?.errors?.['required']) {
+                        <span style="color: red;">*Senha é obrigatória. <br></span>
+                    }
+                    @if(adminForm.get('inputPassword')?.errors?.['minlength']){
+                        <span style="color: red;">*Senha deve ter pelo menos 8 caracteres. <br></span>
+                    }
+                    @if(adminForm.get('inputPassword')?.errors?.['pattern']){
+                        <span style="color: red;">*Senha deve conter letras maiúsculas,minúsculas, números e caracteres especiais. <br></span>
+                    }
+                }
             </div>
             <div class="form-group">
                 <label for="inAddress">Morada:</label>
                 <textarea style="resize: none;" formControlName="inputAddress" class="form-control" rows="3" id="inAddress"></textarea>
+                @if(adminForm.get('inputAddress')?.touched && adminForm.get('inputAddress')?.errors) {
+                    @if(adminForm.get('inputAddress')?.errors?.['required']){
+                        <span style="color: red;">*Endereço é obrigatório. <br></span>
+                    }
+                    @if(adminForm.get('inputAddress')?.errors?.['minlength']){
+                        <span style="color: red;">*Endereço deve ter pelo menos 5 caracteres. <br></span>
+                    }
+                }
             </div>
-            <button type="submit" class="btn">Registar ADM</button>
+            @if(errorMessage){
+                <span style="color: red;">{{ errorMessage }}</span>
+            }
+            <button type="submit" class="btn" [disabled]="adminForm.invalid">Registar ADM</button>
         </form>
     </div>
 </section>

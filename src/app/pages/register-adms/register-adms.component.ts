@@ -39,6 +39,8 @@ export class RegisterAdmsComponent {
 
   apiUrl: string = "http://localhost:8080/api/utilizadores";
 
+  errorMessage: string = "";
+
   constructor(private httpClient: HttpClient, private router: Router){}
 
   registerAdmin(){
@@ -55,7 +57,10 @@ export class RegisterAdmsComponent {
         this.router.navigate(["/manage-users"]);
       },
       (error) => {
-        console.log(error);
+        if(error.error){
+          console.log(error);
+          this.errorMessage = error.error || "Ocorreu um erro ao fazer registo.";
+        }
       }
     )
   }

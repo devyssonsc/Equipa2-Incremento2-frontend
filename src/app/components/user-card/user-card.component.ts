@@ -20,7 +20,6 @@ export class UserCardComponent {
   deleteUser(id: string) {
     const ok = confirm(`Tem certeza que deseja excluir o utilizador: ${id}?`);
     if (ok) {
-      alert(ok);
       this.httpClient.delete(`http://localhost:8080/api/utilizadores/${id}`).subscribe(
         response => {
           window.location.reload();
