@@ -103,7 +103,7 @@ export class RegFormComponent implements OnInit {
       (error) => {
         if(error.error){
           console.log(error);
-          this.errorMessage = error.error || "Ocorreu um erro ao fazer registo.";;
+          this.errorMessage = error.error || "Ocorreu um erro ao fazer registo.";
         }
       }
     )

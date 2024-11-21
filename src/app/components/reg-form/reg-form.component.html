@@ -3,7 +3,7 @@
         <div class="form-group">
             <label for="inName">Nome:</label>
             <input type="text" formControlName="inputName" class="form-control" id="inName">
-            @if(registerForm.get('inputPassword')?.touched && registerForm.get('inputName')?.errors) {
+            @if(registerForm.get('inputName')?.touched && registerForm.get('inputName')?.errors) {
                 @if(registerForm.get('inputName')?.errors?.['required']){
                     <span style="color: red;">*Nome é obrigatório. <br></span>
                 }
@@ -12,7 +12,7 @@
         <div class="form-group">
             <label for="inEmail">Email:</label>
             <input type="email" formControlName="inputEmail" class="form-control" id="inEmail">
-            @if(registerForm.get('inputPassword')?.touched && registerForm.get('inputEmail')?.errors){
+            @if(registerForm.get('inputEmail')?.touched && registerForm.get('inputEmail')?.errors){
                 @if(registerForm.get('inputEmail')?.errors?.['required']){
                     <span style="color: red;">*Email é obrigatório. <br></span>
                 }
