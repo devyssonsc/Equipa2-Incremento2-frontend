@@ -2,14 +2,27 @@
     <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="form-group">
             <label for="inEmail">Email:</label>
-            <input type="email" formControlName="inputEmail" class="form-control" id="inEmail">            
+            <input type="email" formControlName="inputEmail" class="form-control" id="inEmail">
+            @if(loginForm.get('inputPassword')?.touched && loginForm.get('inputEmail')?.errors){
+                @if(loginForm.get('inputEmail')?.errors?.['required']){
+                    <span style="color: red;">*Email é obrigatório. <br></span>
+                }
+            }      
         </div>
         <div class="form-group">
             <label for="inPassword">Password:</label>
-            <input type="password" formControlName="inputPassword" class="form-control" id="inPassword">            
+            <input type="password" formControlName="inputPassword" class="form-control" id="inPassword">
+            @if(loginForm.get('inputPassword')?.touched && loginForm.get('inputPassword')?.errors) {
+                @if(loginForm.get('inputPassword')?.errors?.['required']) {
+                    <span style="color: red;">*Senha é obrigatória. <br></span>
+                }
+            }         
         </div>
+        @if(errorMessage){
+            <span style="color: red;">{{ errorMessage }}</span>
+        }
         <div class="buttons">
-            <button type="submit" id="btLogin" class="btn btn-primary">Entrar</button>
+            <button type="submit" id="btLogin" class="btn btn-primary" [disabled]="loginForm.invalid">Entrar</button>
             <button routerLink="/register" id="btRegister" class="btn btn-secondary">Registar-se</button>
         </div>
     </form>

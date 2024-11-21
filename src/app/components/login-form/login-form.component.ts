@@ -16,20 +16,15 @@ export class LoginFormComponent {
   loginForm = new FormGroup({
     inputEmail: new FormControl('', [
       Validators.required,
-      Validators.email,
-      Validators.minLength(2)
     ]),
     inputPassword: new FormControl('', [
       Validators.required,
-      Validators.minLength(8),
-      Validators.pattern(/(?=.*[A-Z])/),
-      Validators.pattern(/(?=.*[a-z])/),
-      Validators.pattern(/(?=.*[0-9])/),
-      Validators.pattern(/(?=.*[!@#$%^&*])/),
     ])
   })
 
   apiUrl: string = "http://localhost:8080/api/auth";
+
+  errorMessage: string = "";
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
@@ -56,9 +51,9 @@ export class LoginFormComponent {
         this.router.navigate(["/my-profile"]);
       },
       (error) => {
-        // Captura e imprime a mensagem de erro
+        
         if (error.error) {
-          console.error("Error:", error.error);
+          this.errorMessage = error.error || "Ocorreu um erro ao fazer login.";;
         }
       }
     )
