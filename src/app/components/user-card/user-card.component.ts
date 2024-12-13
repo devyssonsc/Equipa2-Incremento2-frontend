@@ -17,8 +17,8 @@ export class UserCardComponent {
 
   constructor(private httpClient: HttpClient) { }
 
-  deleteUser(id: string) {
-    const ok = confirm(`Tem certeza que deseja excluir o utilizador: ${id}?`);
+  deleteUser(id: string, email: string) {
+    const ok = confirm(`Tem certeza que deseja excluir o utilizador: ${email}?`);
     if (ok) {
       this.httpClient.delete(`http://localhost:8080/api/utilizadores/${id}`).subscribe(
         response => {

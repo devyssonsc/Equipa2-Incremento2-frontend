@@ -20,7 +20,7 @@ export class ManageUsersComponent implements OnInit {
   constructor(private httpClient: HttpClient){}
 
   ngOnInit(){
-    this.httpClient.get("http://localhost:8080/api/utilizadores").subscribe(
+    this.httpClient.get("http://localhost:8080/api/utilizadores/ativos").subscribe(
       (response) => {
         console.log(response)
         this.data = response;
