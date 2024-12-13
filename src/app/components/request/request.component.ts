@@ -32,6 +32,7 @@ export class RequestComponent{
   updateStatus(newStatus: StatusService, id: string){
     this.httpClient.put(`${this.apiUrl}/${id}`, {status:newStatus}).subscribe(
       (response) => {
+        console.log(response);
         window.location.reload();
       },
       (error) => {

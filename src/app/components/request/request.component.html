@@ -40,7 +40,10 @@
                 <button class="btn btn-secondary" disabled>Serviço concluído</button>
             }
             @if(status == "ANDAMENTO"){
-                <button class="btn btn-danger"  (click)="updateStatus(StatusService.CONCLUIDO, id)">Finalizar</button>
+                <button class="btn btn-danger"  (click)="updateStatus(StatusService.PAGAMENTO_PENDENTE, id)">Finalizar</button>
+            }
+            @if(status == "PAGAMENTO_PENDENTE"){
+                <button class="btn btn-orange"  disabled>Pagamento pendente</button>
             }
             @if(status == "ACEITE"){
                 <button class="btn btn-blue" (click)="updateStatus(StatusService.ANDAMENTO, id)">Iniciar</button>
@@ -61,6 +64,9 @@
             }
             @if(status == "ACEITE"){
                 <button class="btn btn-danger"  (click)="updateStatus(StatusService.CANCELADO, id)">Cancelar Solicitação</button>
+            }
+            @if(status == "PAGAMENTO_PENDENTE"){
+                <button class="btn btn-danger"  (click)="updateStatus(StatusService.CONCLUIDO, id)">Pagar</button>
             }
         }
     </div>
