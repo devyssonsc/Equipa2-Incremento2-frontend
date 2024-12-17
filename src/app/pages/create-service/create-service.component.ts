@@ -29,17 +29,27 @@ export class CreateServiceComponent implements OnInit {
     ])
   })
 
-  apiUrl: string = "http://localhost:8080/api/servicos";
+  apiUrl: string = "http://localhost:8080/api";
 
   constructor(private httpClient: HttpClient, private router: Router){}
 
   ngOnInit(): void {
-    this.serviceTypes = Object.values(ServiceType);
+    this.httpClient.get(`${this.apiUrl}/tiposServico/ativos`).subscribe(
+      (response) => {
+        console.log(response);
+        this.serviceTypes = response;
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
   }
 
   createService(){
     const data = {
-      tipo: this.serviceForm.value.inputServiceType ? this.serviceForm.value.inputServiceType : "",
+      tipo: {
+        nome: this.serviceForm.value.inputServiceType ? this.serviceForm.value.inputServiceType : ""
+      },
       descricao: this.serviceForm.value.inputDescription ? this.serviceForm.value.inputDescription : "",
       valorHora: this.serviceForm.value.inputPrice ? this.serviceForm.value.inputPrice : "",
       profissional: {
@@ -47,7 +57,7 @@ export class CreateServiceComponent implements OnInit {
       }
     }
 
-    this.httpClient.post(this.apiUrl, data).subscribe(
+    this.httpClient.post(`${this.apiUrl}/servicos`, data).subscribe(
       (response) => {
         console.log(response);
         this.router.navigate(["/my-services"]);

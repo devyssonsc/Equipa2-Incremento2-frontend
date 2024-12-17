@@ -4,7 +4,7 @@
     <div class="my-services">
         @for(so of data; track so){
         <app-service-option
-            [type]=so.tipo
+            [type]=so.tipo.nome
             [description]=so.descricao
             [pro]=so.profissional.nome
             [price]=so.valorHora>

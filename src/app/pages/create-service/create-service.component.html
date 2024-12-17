@@ -7,7 +7,7 @@
                 <select class="form-control" formControlName="inputServiceType" id="inServiceType">
                     <option value="">-- Tipo de serviço --</option>
                     @for(st of serviceTypes; track st){
-                    <option [value]=st>{{ st }}</option>
+                    <option [value]=st.nome>{{ st.nome }}</option>
                     }
                 </select>
             </div>

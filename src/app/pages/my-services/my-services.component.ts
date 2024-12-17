@@ -22,9 +22,9 @@ export class MyServicesComponent implements OnInit {
   ngOnInit(): void {
     const id = localStorage.getItem("id");
     this.httpClient.get(`${this.apiUrl}/servicos/profissional/${id}`).subscribe(
-      (result: any) => {
-        console.log(result);
-        this.data = result;
+      (response: any) => {
+        console.log(response);
+        this.data = response;
       },
       (error) => {
         console.error(error);
