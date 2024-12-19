@@ -54,7 +54,7 @@ export class RegFormComponent implements OnInit {
 
   userType: string = "";
 
-  apiUrl: string = "http://localhost:8080/api/utilizadores";
+  apiUrl: string = "http://localhost:8080/api";
 
   errorMessage: string = "";
   
@@ -62,9 +62,17 @@ export class RegFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.metodosPagamento = Object.values(this.MetodoPagamento);
-    this.especialidades = Object.values(this.ServiceType);
     console.log(this.metodosPagamento);
     console.log(this.especialidades);
+    this.httpClient.get(`${this.apiUrl}/tiposServico/ativos`).subscribe(
+      (response) => {
+        console.log(response);
+        this.especialidades = response;
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
   }
 
   changeUserType(){
@@ -79,13 +87,11 @@ export class RegFormComponent implements OnInit {
       morada: this.registerForm.value.inputAddress ? this.registerForm.value.inputAddress : "",
       userType: this.registerForm.value.checkUserType ? this.registerForm.value.checkUserType.toUpperCase() : "",
       formaDePagamento: this.registerForm.value.inputPaymentMethod ? this.registerForm.value.inputPaymentMethod : "",
-      especialidade: {
-        nome: this.registerForm.value.inputSpecialty ? this.registerForm.value.inputSpecialty : null
-      },
+      especialidade: this.registerForm.value.inputSpecialty ? this.registerForm.value.inputSpecialty : null,
       experiencia: this.registerForm.value.inputExperience ? this.registerForm.value.inputExperience : "",
     }
     console.log(formData);
-    this.httpClient.post(this.apiUrl, formData).subscribe(
+    this.httpClient.post(`${this.apiUrl}/utilizadores`, formData).subscribe(
       (result) => {
         console.log(result);
         if("id" in result){

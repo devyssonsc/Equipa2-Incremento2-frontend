@@ -5,7 +5,7 @@
             <select formControlName="inputFilteredType" id="inFilteredType" class="form-control" (change)="onSearch()">
                 <option value="">-- Tipo de serviço --</option>
                 @for(st of serviceTypes; track st){
-                    <option [value]=st>{{st}}</option>
+                    <option [value]=st.nome>{{st.nome}}</option>
                 }
             </select>
             <i class="bi bi-search" (click)="onSearch()"></i>

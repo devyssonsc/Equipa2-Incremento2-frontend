@@ -73,7 +73,7 @@
             <select class="form-control" id="inSpecialty" formControlName="inputSpecialty">
                 <option value="">-- Especialidade --</option>
                 @for(e of especialidades; track e){
-                <option [value]=e>{{ e }}</option>
+                <option [value]=e.nome>{{ e.nome }}</option>
                 }
             </select>
         </div>

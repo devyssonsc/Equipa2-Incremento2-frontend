@@ -17,7 +17,7 @@ export class ChooseServiceComponent implements OnInit {
     data: any[] = []
 
     ServiceType = ServiceType;
-    serviceTypes = Object.values(ServiceType);
+    serviceTypes: any;
 
     searchForm = new FormGroup({
       inputFilteredType: new FormControl('')
@@ -34,6 +34,16 @@ export class ChooseServiceComponent implements OnInit {
           },
           (error) => {
             console.error(error.error);
+          }
+        )
+
+        this.httpClient.get(`${this.apiUrl}/tiposServico/ativos`).subscribe(
+          (response) => {
+            console.log(response);
+            this.serviceTypes = response;
+          },
+          (error) => {
+            console.log(error);
           }
         )
     }
