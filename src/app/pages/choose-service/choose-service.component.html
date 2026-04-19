@@ -4,9 +4,11 @@
         <div class="form-group">
             <select formControlName="inputFilteredType" id="inFilteredType" class="form-control" (change)="onSearch()">
                 <option value="">-- Tipo de serviço --</option>
-                @for(st of serviceTypes; track st){
-                    <option [value]=st.nome>{{st.nome}}</option>
-                }
+                    @for(st of serviceTypes; track st){
+                        <option [value]=st.nome>{{st.nome}}</option>
+                    }
+                    <option value="Plumbing">Plumbing</option>
+                    <option value="Electrical">Electrical</option>
             </select>
             <i class="bi bi-search" (click)="onSearch()"></i>
         </div>
@@ -22,5 +24,23 @@
             >
             </app-service-option>
         }
+        <app-service-option
+            [type]="'Exemplo de Serviço'"
+            [description]="'Descrição do serviço exemplo.'"
+            [pro]="'Profissional Exemplo'"
+            [price]="'100'"
+        ></app-service-option>
+        <app-service-option
+            [type]="'Outro Serviço'"
+            [description]="'Descrição de outro serviço.'"
+            [pro]="'Outro Profissional'"
+            [price]="'150'"
+        ></app-service-option>
+        <app-service-option
+            [type]="'Serviço Adicional'"
+            [description]="'Descrição do serviço adicional.'"
+            [pro]="'Profissional Adicional'"
+            [price]="'200'"
+        ></app-service-option>
     </div>
 </section>
